@@ -178,7 +178,6 @@ Makefile: ../UnderWaterRobot/UnderWaterRobot.pro ../../../QT/5.5/mingw492_32/mks
 		../../../QT/5.5/mingw492_32/mkspecs/features/resolve_config.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/exclusive_builds_post.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/default_post.prf \
-		../../../QT/5.5/mingw492_32/mkspecs/features/win32/console.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/win32/rtti.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/precompile_header.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/warn_on.prf \
@@ -187,11 +186,13 @@ Makefile: ../UnderWaterRobot/UnderWaterRobot.pro ../../../QT/5.5/mingw492_32/mks
 		../../../QT/5.5/mingw492_32/mkspecs/features/moc.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/win32/opengl.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/uic.prf \
+		../../../QT/5.5/mingw492_32/mkspecs/features/win32/windows.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/testcase_targets.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/exceptions.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/yacc.prf \
 		../../../QT/5.5/mingw492_32/mkspecs/features/lex.prf \
 		../UnderWaterRobot/UnderWaterRobot.pro \
+		D:/Programming/QT/5.5/mingw492_32/lib/qtmaind.prl \
 		D:/Programming/QT/5.5/mingw492_32/lib/Qt5Widgets.prl \
 		D:/Programming/QT/5.5/mingw492_32/lib/Qt5Gui.prl \
 		D:/Programming/QT/5.5/mingw492_32/lib/Qt5Core.prl
@@ -315,7 +316,6 @@ Makefile: ../UnderWaterRobot/UnderWaterRobot.pro ../../../QT/5.5/mingw492_32/mks
 ../../../QT/5.5/mingw492_32/mkspecs/features/resolve_config.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/exclusive_builds_post.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/default_post.prf:
-../../../QT/5.5/mingw492_32/mkspecs/features/win32/console.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/win32/rtti.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/precompile_header.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/warn_on.prf:
@@ -324,11 +324,13 @@ Makefile: ../UnderWaterRobot/UnderWaterRobot.pro ../../../QT/5.5/mingw492_32/mks
 ../../../QT/5.5/mingw492_32/mkspecs/features/moc.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/win32/opengl.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/uic.prf:
+../../../QT/5.5/mingw492_32/mkspecs/features/win32/windows.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/testcase_targets.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/exceptions.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/yacc.prf:
 ../../../QT/5.5/mingw492_32/mkspecs/features/lex.prf:
 ../UnderWaterRobot/UnderWaterRobot.pro:
+D:/Programming/QT/5.5/mingw492_32/lib/qtmaind.prl:
 D:/Programming/QT/5.5/mingw492_32/lib/Qt5Widgets.prl:
 D:/Programming/QT/5.5/mingw492_32/lib/Qt5Gui.prl:
 D:/Programming/QT/5.5/mingw492_32/lib/Qt5Core.prl:

@@ -2,6 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtCore>
+#include <QtGui>
+#include <QLabel>
+#include <QKeyEvent>
+#include <string>
+#include "controller.h"
+#include "movement.h"
+#include "hotkeyswindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,8 +24,17 @@ public:
     void showDisplay();
     ~MainWindow();
 
+protected:
+   // bool eventFilter(QObject *obj, QEvent *ev);
+
+private slots:
+    void on_actionHotkeys_triggered();
+
 private:
     Ui::MainWindow *ui;
+    QLabel *StatMovement;
+    Controller *c;
+    hotkeysWindow *hw;
 };
 
 #endif // MAINWINDOW_H

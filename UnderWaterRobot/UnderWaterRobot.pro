@@ -14,10 +14,19 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    controller.cpp
+    controller.cpp \
+    communication.cpp \
+    movement.cpp \
+    hotkeys.cpp \
+    hotkeyswindow.cpp
 
 HEADERS  += mainwindow.h \
-    controller.h
+    controller.h \
+    communication.h \
+    movement.h \
+    hotkeys.h \
+    hotkeyswindow.h
 
-FORMS    += mainwindow.ui
-CONFIG += console
+FORMS    += mainwindow.ui \
+    hotkeyswindow.ui
+

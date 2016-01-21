@@ -1,5 +1,5 @@
 #include "controller.h"
-#include <windows.h>
+
 
 /* The Keys that are mapped to the third party program
  *
@@ -10,133 +10,153 @@
  *                  Right       -       Right arrow         Straft Right
  *                  Left        -       Left arrow          Straft Left
  * Triggers:
- *                  L1          -       xx
+ *                  L1          -       4
  *                  L2          -       f                   Roll Left
- *                  R1          -       xx
+ *                  R1          -       5
  *                  R2          -       g                   Roll Right
  * Shapes-Pad:
- *                  Triangle    -       xx
- *                  Square      -       xx
- *                  Circle      -       xx
- *                  Cross       -       Space               Straight Up
+ *                  Triangle    -       1                   Increase Speed
+ *                  Square      -       2                   Take Picture
+ *                  Circle      -       3                   Decrease Speed
+ *                  Cross       -       Space               Up
  * Right Joystick:
  *                  Up          -       z                   Pitch Up
  *                  Down        -       x                   Pitch Down
  *                  Left        -       q                   Turn Left
  *                  Right       -       e                   Turn Right
- *                  R3          -       c                   Straight Down
+ *                  R3          -       c                   Down
  * Left Joystick:
  *                  Up          -       Up Arrow            Forward
  *                  Down        -       Down Arrow          Backwards
  *                  Left        -       Left Arrow          Straft Left
  *                  Right       -       Right Arrow         Straft Right
- *                  L3          -       c                   Straight Down
+ *                  L3          -       9
  * Other:
- *                  Start       -       xx
- *                  Select      -       xx
- *                  PS          -       xx
+ *                  Start       -       6
+ *                  Select      -       7
+ *                  PS          -       8
 */
+
+
 
 Controller::Controller()
 {
+    m = new Movement();
+    h = new Hotkeys();
 }
 
-/* Movements and Temps meaning for each index
- * 0 = Forward/Backward
- * 1 = Straft Left/Right
- * 2 = Straight Up/Down
- * 3 = Pitch
- * 4 = Roll
- * 5 = yaw (turn)
-*/
-int movements[6] = {0};
+double Controller::getSpeed(){return m->getSpeed();}
+Hotkeys *Controller::getHotkeys(){return h;}
 
-QString message;
-void gotoXY(int change[]);
-bool check(const int array[], int n);
-
-QString Controller::Display(){ 
-    int temp[6] = {0};
-    message = "Nothing pressed";
-
-    // Forward/Backward
-    if(GetAsyncKeyState(VK_UP))
-        temp[0] = movements[0]+1;
-    if(GetAsyncKeyState(VK_DOWN))
-        temp[0] = movements[0]-1;
-
-    // Straft Right/Left
-    if(GetAsyncKeyState(VK_RIGHT))
-        temp[1] = movements[1]+1;
-    if(GetAsyncKeyState(VK_LEFT))
-        temp[1] = movements[1]-1;
-
-    // Straight Up/Down
-    if(GetAsyncKeyState(VK_SPACE))
-        temp[2] = movements[2]+1;
-    if(GetAsyncKeyState(0x43))//c
-        temp[2] = movements[2]-1;
-
-    // Pitch
-    if(GetAsyncKeyState(0x58))//x
-        temp[3] = movements[3]+1;
-    if(GetAsyncKeyState(0x5A))//z
-        temp[3] = movements[3]-1;
-
-    // Roll
-    if(GetAsyncKeyState(0x47))//g
-        temp[4] = movements[4]+1;
-    if(GetAsyncKeyState(0x46))//f
-        temp[4] = movements[4]-1;
-
-    // Yaw (turn)
-    if(GetAsyncKeyState(0x45))//e
-        temp[5] = movements[5]+1;
-    if(GetAsyncKeyState(0x51))//q
-        temp[5] = movements[5]-1;
-
-    gotoXY(temp);
-    return message;
-
-}
-void gotoXY(int change[]){
-    if(!check(change, 6))
-        message = "";
-    else
-        return;
-
-    if(change[0]==1)
-        message += QLatin1String("Forward");
-    if(change[0]==-1)
-        message += QLatin1String("Backward");
-    if(change[1]==1)
-        message += QLatin1String("Straft Right");
-    if(change[1]==-1)
-        message += QLatin1String("Straft Left");
-    if(change[2]==1)
-        message += QLatin1String("Straight Up");
-    if(change[2]==-1)
-        message += QLatin1String("Straight Down");
-    if(change[3]==1)
-        message += QLatin1String("Pitch up");
-    if(change[3]==-1)
-        message += QLatin1String("Pitch Down");
-    if(change[4]==1)
-        message += QLatin1String("Roll Right");
-    if(change[4]==-1)
-        message += QLatin1String("Roll Left");
-    if(change[5]==1)
-        message += QLatin1String("Turn Right");
-    if(change[5]==-1)
-        message += QLatin1String("Turn Left");
-}
-
-bool check(const int array[], int n)
+QString Controller::getMovementsMessage()
 {
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (array[i] != array[i + 1])
-            return false;
-    }
-    return true;
+    QString message = "";
+
+    if(m->getForwardBackward()>0)
+        message += QLatin1String("Forward ");
+    if(m->getForwardBackward()<0)
+        message += QLatin1String("Backward ");
+    if(m->getStraft()>0)
+        message += QLatin1String("Straft Right ");
+    if(m->getStraft()<0)
+        message += QLatin1String("Straft Left ");
+
+    if(m->getUpDown()>0)
+        message += QLatin1String("Up ");
+    if(m->getUpDown()<0)
+        message += QLatin1String("Down ");
+    if(m->getPitch()>0)
+        message += QLatin1String("Pitch Up ");
+    if(m->getPitch()<0)
+        message += QLatin1String("Pitch Down ");
+
+    if(m->getRoll()>0)
+        message += QLatin1String("Roll Right ");
+    if(m->getRoll()<0)
+        message += QLatin1String("Roll Left ");
+    if(m->getYaw()>0)
+        message += QLatin1String("Turn Right ");
+    if(m->getYaw()<0)
+        message += QLatin1String("Turn Left ");
+
+     message += QString::number(m->getSpeed());
+
+    return message;
 }
+
+void Controller::keyPressEvent(QKeyEvent* event)
+{
+    if(h->getForward() == event->key())
+        m->setForwardBackward(1);
+    if(h->getBackwards() == event->key())
+        m->setForwardBackward(-1);
+    if(h->getStraft_Right() == event->key())
+        m->setStraft(1);
+    if(h->getStraft_Left() == event->key())
+        m->setStraft(-1);
+
+    if(h->getUp() == event->key())
+        m->setUpdown(1);
+    if(h->getDown() == event->key())
+        m->setUpdown(-1);
+    if(h->getPitch_Up() == event->key())
+        m->setPitch(1);
+    if(h->getPitch_Down() == event->key())
+        m->setPitch(-1);
+
+    if(h->getRoll_Right() == event->key())
+        m->setRoll(1);
+    if(h->getRoll_Left() == event->key())
+        m->setRoll(-1);
+    if(h->getTurn_Right() == event->key())
+        m->setYaw(1);
+    if(h->getTurn_Left() == event->key())
+        m->setYaw(-1);
+
+    if(h->getSpeed_Increase() == event->key())
+        m->setSpeed(m->getSpeed()+.01);
+    if(h->getSpeed_Decrease() == event->key())
+        m->setSpeed(m->getSpeed()-.01);
+
+    //if(h->getPicture_Capture() == event->key())
+        //TODO picture functionality
+
+}
+
+void Controller::keyReleaseEvent(QKeyEvent* event)
+{
+
+    if(h->getForward() == event->key()||h->getBackwards() == event->key())
+        m->setForwardBackward(0);
+    if(h->getStraft_Right() == event->key()|| h->getStraft_Left() == event->key())
+        m->setStraft(0);
+
+    if(h->getUp() == event->key() || h->getDown() == event->key())
+        m->setUpdown(0);
+    if(h->getPitch_Up() == event->key() || h->getPitch_Down() == event->key())
+        m->setPitch(0);
+
+    if(h->getRoll_Right() == event->key() || h->getRoll_Left() == event->key())
+        m->setRoll(0);
+    if(h->getTurn_Right() == event->key() || h->getTurn_Left() == event->key())
+        m->setYaw(0);
+}
+
+bool Controller::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        keyPressEvent(keyEvent);
+        return true;
+    }
+    else if (event->type() == QEvent::KeyRelease){
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        keyReleaseEvent(keyEvent);
+        return true;
+    }
+    else {
+        // standard event processing
+        return QObject::eventFilter(obj, event);
+    }
+}
+
