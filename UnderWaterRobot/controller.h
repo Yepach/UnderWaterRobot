@@ -21,6 +21,7 @@ public:
     double getSpeed();
     Hotkeys *getHotkeys();
     Settings *getSettings();
+    Movement *getMovement();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);

@@ -32,3 +32,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     hotkeyswindow.ui
 
+RESOURCES += \
+    resources.qrc
+

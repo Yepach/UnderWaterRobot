@@ -49,6 +49,7 @@ Controller::Controller()
 double Controller::getSpeed(){return m->getSpeed();}
 Hotkeys *Controller::getHotkeys(){return h;}
 Settings *Controller::getSettings(){return s;}
+Movement *Controller::getMovement(){return m;}
 
 QString Controller::getMovementsMessage()
 {

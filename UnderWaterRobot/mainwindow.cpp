@@ -34,6 +34,71 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actionPressure->setChecked(true);
     ui->actionSpeed->setChecked(true);
     ui->actionTempurature->setChecked(true);
+
+
+
+    /****************************** Images for arrows *****************/
+    int imageSize = 50;
+    pixDownBlank.load(":/Images/ArrowBlankDown.png");
+    pixUpBlank.load(":/Images/ArrowBlankUp.png");
+    pixRightBlank.load(":/Images/ArrowBlankRight.png");
+    pixLeftBlank.load(":/Images/ArrowBlankLeft.png");
+    pixForwardBlank.load(":/Images/ArrowBlankForward.png");
+    pixBackwardsBlank.load(":/Images/ArrowBlankBackwards.png");
+
+    pixDownFull.load(":/Images/ArrowFullDown.png");
+    pixUpFull.load(":/Images/ArrowFullUp.png");
+    pixRightFull.load(":/Images/ArrowFullRight.png");
+    pixLeftFull.load(":/Images/ArrowFullLeft.png");
+    pixForwardFull.load(":/Images/ArrowFullForward.png");
+    pixBackwardsFull.load(":/Images/ArrowFullBackwards.png");
+
+    pixDownFullCounter.load(":/Images/ArrowFullDownCounter.png");
+    pixLeftFullCounter.load(":/Images/ArrowFullLeftCounter.png");
+    pixForwardFullCounter.load(":/Images/ArrowFullForwardCounter.png");
+    pixBackwardsFullClockwise.load(":/Images/ArrowFullBackwardsClockwise.png");
+
+    pixDownFullClockwise.load(":/Images/ArrowFullDownClockwise.png");
+    pixLeftFullClockwise.load(":/Images/ArrowFullLeftClockwise.png");
+    pixForwardCounter.load(":/Images/ArrowForwardCounter.png");
+    pixBackwardsClockwise.load(":/Images/ArrowBackwardsClockwise.png");
+
+    pixDownClockwise.load(":/Images/ArrowDownClockwise.png");
+    pixLeftClockwise.load(":/Images/ArrowLeftClockwise.png");
+    pixDownCounter.load(":/Images/ArrowDownCounter.png");
+    pixLeftCounter.load(":/Images/ArrowLeftCounter.png");
+
+    pixDownBlank = pixDownBlank.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixUpBlank = pixUpBlank.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixRightBlank = pixRightBlank.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixLeftBlank = pixLeftBlank.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixForwardBlank = pixForwardBlank.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixBackwardsBlank = pixBackwardsBlank.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    pixDownFull = pixDownFull.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixUpFull = pixUpFull.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixRightFull = pixRightFull.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixLeftFull = pixLeftFull.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixForwardFull = pixForwardFull.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixBackwardsFull = pixBackwardsFull.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    pixDownFullCounter = pixDownFullCounter.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixLeftFullCounter = pixLeftFullCounter.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixForwardFullCounter = pixForwardFullCounter.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixBackwardsFullClockwise = pixBackwardsFullClockwise.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    pixDownFullClockwise = pixDownFullClockwise.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixLeftFullClockwise = pixLeftFullClockwise.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixForwardCounter = pixForwardCounter.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixBackwardsClockwise = pixBackwardsClockwise.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    pixDownClockwise = pixDownClockwise.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixLeftClockwise = pixLeftClockwise.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixDownCounter = pixDownCounter.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixLeftCounter = pixLeftCounter.scaled(imageSize,imageSize,Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    /****************** Images for arrows end ********************/
+
 }
 
 void MainWindow::showDisplay()
@@ -42,6 +107,87 @@ void MainWindow::showDisplay()
     ui->progressBar->setValue(c->getSpeed()*100);
     displayProgressBar(c->getSpeed());
     displaySettings();
+    displayArrowImages();
+}
+
+void MainWindow::displayArrowImages()
+{
+    //Decide Up Image
+    if(c->getMovement()->getUpDown() == 1)
+        ui->labelUpImage->setPixmap(pixUpFull);
+    else
+        ui->labelUpImage->setPixmap(pixUpBlank);
+
+    //Decide Down Image
+    if(c->getMovement()->getUpDown() == -1)
+    {
+        if(c->getMovement()->getYaw() == -1)
+            ui->labelDownImage->setPixmap(pixDownFullClockwise);
+        else if(c->getMovement()->getYaw() == 1)
+            ui->labelDownImage->setPixmap(pixDownFullCounter);
+        else
+            ui->labelDownImage->setPixmap(pixDownFull);
+    }
+    else
+    {
+        if(c->getMovement()->getYaw() == -1)
+            ui->labelDownImage->setPixmap(pixDownClockwise);
+        else if(c->getMovement()->getYaw() == 1)
+            ui->labelDownImage->setPixmap(pixDownCounter);
+        else
+            ui->labelDownImage->setPixmap(pixDownBlank);
+    }
+
+    //Decide Right Image
+    if(c->getMovement()->getStraft() == 1)
+        ui->labelRightImage->setPixmap(pixRightFull);
+    else
+        ui->labelRightImage->setPixmap(pixRightBlank);
+
+    //Decide Left Image
+    if(c->getMovement()->getStraft() == -1)
+    {
+        if(c->getMovement()->getPitch() == -1)
+            ui->labelLeftImage->setPixmap(pixLeftFullClockwise);
+        else if(c->getMovement()->getPitch() == 1)
+            ui->labelLeftImage->setPixmap(pixLeftFullCounter);
+        else
+            ui->labelLeftImage->setPixmap(pixLeftFull);
+    }
+    else
+    {
+        if(c->getMovement()->getPitch() == -1)
+            ui->labelLeftImage->setPixmap(pixLeftClockwise);
+        else if(c->getMovement()->getPitch() == 1)
+            ui->labelLeftImage->setPixmap(pixLeftCounter);
+        else
+            ui->labelLeftImage->setPixmap(pixLeftBlank);
+    }
+
+    //Decide Forward Image
+    if(c->getMovement()->getForwardBackward() == 1)
+        if(c->getMovement()->getRoll() == -1)
+            ui->labelForwardImage->setPixmap(pixForwardFullCounter);
+        else
+            ui->labelForwardImage->setPixmap(pixForwardFull);
+    else
+        if(c->getMovement()->getRoll() == -1)
+            ui->labelForwardImage->setPixmap(pixForwardCounter);
+        else
+            ui->labelForwardImage->setPixmap(pixForwardBlank);
+
+    //Decide Backwards Image
+    if(c->getMovement()->getForwardBackward() == -1)
+        if(c->getMovement()->getRoll() == 1)
+            ui->labelBackwardsImage->setPixmap(pixBackwardsFullClockwise);
+        else
+            ui->labelBackwardsImage->setPixmap(pixBackwardsFull);
+    else
+        if(c->getMovement()->getRoll() == 1)
+            ui->labelBackwardsImage->setPixmap(pixBackwardsClockwise);
+        else
+            ui->labelBackwardsImage->setPixmap(pixBackwardsBlank);
+
 }
 
 void MainWindow::displayProgressBar(double n)
@@ -53,17 +199,21 @@ void MainWindow::displayProgressBar(double n)
     else
         ui->progressBar->setStyleSheet(QString("QProgressBar::chunk:vertical {background: qlineargradient(x1: 0.5, y1: 1, x2: 0.5, y2: 0, stop: 0 green, stop: 1 red);}"));
 }
-void MainWindow::displaySettings(){
+void MainWindow::displaySettings()
+{
     resetSettingLabels();
     int n = 0;
-    for (int i =  0; i < c->getSettings()->n; i++){
-        if (c->getSettings()->set[i].display == true){
+    for (int i =  0; i < c->getSettings()->n; i++)
+    {
+        if (c->getSettings()->set[i].display == true)
+        {
             setSettingLabels(n,i);
             n++;
         }
     }
 }
-void MainWindow::resetSettingLabels(){
+void MainWindow::resetSettingLabels()
+{
     ui->labelStats1->setText("");
     ui->labelStatsValue1->setText("");
     ui->labelStats2->setText("");
@@ -83,53 +233,54 @@ void MainWindow::resetSettingLabels(){
     ui->labelStats9->setText("");
     ui->labelStatsValue9->setText("");
 }
-void MainWindow::setSettingLabels(int n, int i){
+void MainWindow::setSettingLabels(int n, int i)
+{
     switch (n)
     {
     case 0:
-    ui->labelStats1->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue1->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats1->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue1->setText(QString::number(c->getSettings()->set[i].value));
+        break;
 
     case 1:
-    ui->labelStats2->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue2->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats2->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue2->setText(QString::number(c->getSettings()->set[i].value));
+        break;
 
     case 2:
-    ui->labelStats3->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue3->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats3->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue3->setText(QString::number(c->getSettings()->set[i].value));
+        break;
 
     case 3:
-    ui->labelStats4->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue4->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats4->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue4->setText(QString::number(c->getSettings()->set[i].value));
+        break;
 
     case 4:
-    ui->labelStats5->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue5->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats5->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue5->setText(QString::number(c->getSettings()->set[i].value));
+        break;
 
     case 5:
-    ui->labelStats6->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue6->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats6->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue6->setText(QString::number(c->getSettings()->set[i].value));
+        break;
 
     case 6:
-    ui->labelStats7->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue7->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats7->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue7->setText(QString::number(c->getSettings()->set[i].value));
+        break;
 
     case 7:
-    ui->labelStats8->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue8->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats8->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue8->setText(QString::number(c->getSettings()->set[i].value));
+        break;
 
     case 8:
-    ui->labelStats9->setText(c->getSettings()->set[i].name+":");
-    ui->labelStatsValue9->setText(QString::number(c->getSettings()->set[i].value));
-    break;
+        ui->labelStats9->setText(c->getSettings()->set[i].name+":");
+        ui->labelStatsValue9->setText(QString::number(c->getSettings()->set[i].value));
+        break;
     }
 }
 void MainWindow::on_actionHotkeys_triggered()
@@ -140,9 +291,9 @@ void MainWindow::on_actionHotkeys_triggered()
 
 void MainWindow::on_actionSpeed_toggled(bool arg1)
 {
-   for (int i = 0; i < c->getSettings()->n; i++)
-       if(c->getSettings()->set[i].name == "Speed")
-           c->getSettings()->set[i].display = arg1;
+    for (int i = 0; i < c->getSettings()->n; i++)
+        if(c->getSettings()->set[i].name == "Speed")
+            c->getSettings()->set[i].display = arg1;
 }
 
 void MainWindow::on_actionBattery_Life_toggled(bool arg1)

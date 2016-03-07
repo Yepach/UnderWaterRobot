@@ -84,7 +84,18 @@ public:
     QLabel *labelRightMotorValue;
     QSlider *verticalSliderRight;
     QLabel *label_4;
+    QVBoxLayout *verticalLayout_5;
     QGraphicsView *graphicsView;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *labelUpImage;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *labelLeftImage;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *labelForwardImage;
+    QLabel *labelBackwardsImage;
+    QLabel *labelRightImage;
+    QHBoxLayout *horizontalLayout;
+    QLabel *labelDownImage;
     QFrame *line_4;
     QMenuBar *menuBar;
     QMenu *menuSettings;
@@ -333,11 +344,71 @@ public:
 
         horizontalLayout_other->addLayout(verticalLayout_4);
 
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         graphicsView = new QGraphicsView(gridLayoutWidget);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
         graphicsView->setMaximumSize(QSize(16777215, 399));
 
-        horizontalLayout_other->addWidget(graphicsView);
+        verticalLayout_5->addWidget(graphicsView);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        labelUpImage = new QLabel(gridLayoutWidget);
+        labelUpImage->setObjectName(QStringLiteral("labelUpImage"));
+
+        horizontalLayout_2->addWidget(labelUpImage, 0, Qt::AlignHCenter);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_2);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        labelLeftImage = new QLabel(gridLayoutWidget);
+        labelLeftImage->setObjectName(QStringLiteral("labelLeftImage"));
+
+        horizontalLayout_3->addWidget(labelLeftImage, 0, Qt::AlignLeft);
+
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        labelForwardImage = new QLabel(gridLayoutWidget);
+        labelForwardImage->setObjectName(QStringLiteral("labelForwardImage"));
+
+        verticalLayout_6->addWidget(labelForwardImage, 0, Qt::AlignHCenter);
+
+        labelBackwardsImage = new QLabel(gridLayoutWidget);
+        labelBackwardsImage->setObjectName(QStringLiteral("labelBackwardsImage"));
+
+        verticalLayout_6->addWidget(labelBackwardsImage, 0, Qt::AlignHCenter);
+
+
+        horizontalLayout_3->addLayout(verticalLayout_6);
+
+        labelRightImage = new QLabel(gridLayoutWidget);
+        labelRightImage->setObjectName(QStringLiteral("labelRightImage"));
+
+        horizontalLayout_3->addWidget(labelRightImage, 0, Qt::AlignRight);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_3);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        labelDownImage = new QLabel(gridLayoutWidget);
+        labelDownImage->setObjectName(QStringLiteral("labelDownImage"));
+
+        horizontalLayout->addWidget(labelDownImage, 0, Qt::AlignHCenter);
+
+
+        verticalLayout_5->addLayout(horizontalLayout);
+
+
+        horizontalLayout_other->addLayout(verticalLayout_5);
 
         line_4 = new QFrame(gridLayoutWidget);
         line_4->setObjectName(QStringLiteral("line_4"));
@@ -413,6 +484,12 @@ public:
         label_3->setText(QApplication::translate("MainWindow", "Rear Motor", 0));
         labelRightMotorValue->setText(QString());
         label_4->setText(QApplication::translate("MainWindow", "Right Motor", 0));
+        labelUpImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        labelLeftImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        labelForwardImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        labelBackwardsImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        labelRightImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        labelDownImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         menuSettings->setTitle(QApplication::translate("MainWindow", "Settings", 0));
         menuData->setTitle(QApplication::translate("MainWindow", "Data", 0));
     } // retranslateUi

@@ -26,6 +26,7 @@ public:
     void resetSettingLabels();
     void displayProgressBar(double n);
     void displaySettings();
+    void displayArrowImages();
     ~MainWindow();
 
 protected:
@@ -55,6 +56,11 @@ private:
     QLabel *StatMovement;
     Controller *c;
     hotkeysWindow *hw;
+    QPixmap pixDownBlank, pixUpBlank, pixRightBlank, pixLeftBlank, pixForwardBlank, pixBackwardsBlank,
+            pixDownFull, pixUpFull, pixRightFull, pixLeftFull, pixForwardFull, pixBackwardsFull,
+            pixDownFullCounter, pixLeftFullCounter, pixForwardFullCounter, pixBackwardsFullClockwise,
+            pixDownFullClockwise, pixLeftFullClockwise,pixForwardCounter, pixBackwardsClockwise ,
+            pixDownClockwise, pixLeftClockwise, pixDownCounter, pixLeftCounter;
 };
 
 #endif // MAINWINDOW_H

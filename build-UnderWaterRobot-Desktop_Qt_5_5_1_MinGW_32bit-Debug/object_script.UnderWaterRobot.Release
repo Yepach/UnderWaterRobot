@@ -7,6 +7,7 @@ INPUT(
 ./release\hotkeys.o
 ./release\hotkeyswindow.o
 ./release\settings.o
+./release\qrc_resources.o
 ./release\moc_mainwindow.o
 ./release\moc_hotkeyswindow.o
 );

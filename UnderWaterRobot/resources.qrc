@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>ArrowBlankDown.png</file>
+        <file>ArrowBlankUp.png</file>
+        <file>ArrowBlankRight.png</file>
+        <file>ArrowBlankBackwards.png</file>
+        <file>ArrowBlankForward.png</file>
+        <file>ArrowBlankLeft.png</file>
+        <file>ArrowBackwardsClockwise.png</file>
+        <file>ArrowDownCounter.png</file>
+        <file>ArrowForwardCounter.png</file>
+        <file>ArrowFullBackwards.png</file>
+        <file>ArrowFullBackwardsClockwise.png</file>
+        <file>ArrowDownClockwise.png</file>
+        <file>ArrowFullDown.png</file>
+        <file>ArrowFullDownClockwise.png</file>
+        <file>ArrowFullDownCounter.png</file>
+        <file>ArrowFullForward.png</file>
+        <file>ArrowFullForwardCounter.png</file>
+        <file>ArrowFullLeft.png</file>
+        <file>ArrowFullLeftClockwise.png</file>
+        <file>ArrowFullLeftCounter.png</file>
+        <file>ArrowFullRight.png</file>
+        <file>ArrowFullUp.png</file>
+        <file>ArrowLeftClockwise.png</file>
+        <file>ArrowLeftCounter.png</file>
+    </qresource>
+</RCC>
