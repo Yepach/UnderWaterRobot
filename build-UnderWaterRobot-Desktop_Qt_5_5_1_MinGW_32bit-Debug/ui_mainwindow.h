@@ -16,15 +16,18 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -33,15 +36,56 @@ class Ui_MainWindow
 {
 public:
     QAction *actionHotkeys;
+    QAction *actionSpeed;
+    QAction *actionBattery_Life;
+    QAction *actionPressure;
+    QAction *actionTempurature;
+    QAction *actionDepth;
     QWidget *centralWidget;
     QWidget *gridLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *labelStatistics;
     QGridLayout *gridLayout;
-    QSpacerItem *verticalSpacer;
-    QGraphicsView *graphicsView;
+    QSpacerItem *horizontalSpacer_4;
+    QLabel *labelStatsValue8;
+    QLabel *labelStatsValue7;
+    QSpacerItem *horizontalSpacer_3;
+    QLabel *labelStatsValue2;
+    QLabel *labelStatsValue3;
+    QLabel *labelStats8;
+    QLabel *labelStats4;
+    QLabel *labelStats3;
+    QLabel *labelStats6;
+    QLabel *labelStats7;
+    QLabel *labelStatsValue9;
+    QLabel *labelStatsValue6;
+    QSpacerItem *horizontalSpacer;
+    QLabel *labelStatsValue5;
+    QLabel *labelStats9;
+    QLabel *labelStats5;
+    QLabel *labelStatsValue4;
+    QLabel *labelStats1;
+    QLabel *labelStats2;
+    QLabel *labelStatsValue1;
+    QFrame *line_3;
     QFrame *line;
-    QSlider *verticalSlider;
-    QLabel *speedLabel;
-    QSpacerItem *verticalSpacer_3;
+    QHBoxLayout *horizontalLayout_other;
+    QFrame *line_2;
+    QProgressBar *progressBar;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *labelLeftMotorValue;
+    QSlider *verticalSliderLeft;
+    QLabel *label_2;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *labelRearMotorValue;
+    QSlider *verticalSliderBack;
+    QLabel *label_3;
+    QVBoxLayout *verticalLayout_4;
+    QLabel *labelRightMotorValue;
+    QSlider *verticalSliderRight;
+    QLabel *label_4;
+    QGraphicsView *graphicsView;
+    QFrame *line_4;
     QMenuBar *menuBar;
     QMenu *menuSettings;
     QMenu *menuData;
@@ -55,46 +99,255 @@ public:
         MainWindow->resize(755, 487);
         actionHotkeys = new QAction(MainWindow);
         actionHotkeys->setObjectName(QStringLiteral("actionHotkeys"));
+        actionSpeed = new QAction(MainWindow);
+        actionSpeed->setObjectName(QStringLiteral("actionSpeed"));
+        actionSpeed->setCheckable(true);
+        actionBattery_Life = new QAction(MainWindow);
+        actionBattery_Life->setObjectName(QStringLiteral("actionBattery_Life"));
+        actionBattery_Life->setCheckable(true);
+        actionPressure = new QAction(MainWindow);
+        actionPressure->setObjectName(QStringLiteral("actionPressure"));
+        actionPressure->setCheckable(true);
+        actionTempurature = new QAction(MainWindow);
+        actionTempurature->setObjectName(QStringLiteral("actionTempurature"));
+        actionTempurature->setCheckable(true);
+        actionDepth = new QAction(MainWindow);
+        actionDepth->setObjectName(QStringLiteral("actionDepth"));
+        actionDepth->setCheckable(true);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayoutWidget = new QWidget(centralWidget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(30, 10, 681, 401));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayoutWidget->setGeometry(QRect(20, 10, 701, 401));
+        verticalLayout = new QVBoxLayout(gridLayoutWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        labelStatistics = new QLabel(gridLayoutWidget);
+        labelStatistics->setObjectName(QStringLiteral("labelStatistics"));
+
+        verticalLayout->addWidget(labelStatistics);
+
+        gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(verticalSpacer, 3, 1, 1, 1);
+        gridLayout->addItem(horizontalSpacer_4, 1, 9, 1, 1);
 
-        graphicsView = new QGraphicsView(gridLayoutWidget);
-        graphicsView->setObjectName(QStringLiteral("graphicsView"));
+        labelStatsValue8 = new QLabel(gridLayoutWidget);
+        labelStatsValue8->setObjectName(QStringLiteral("labelStatsValue8"));
 
-        gridLayout->addWidget(graphicsView, 2, 2, 4, 1);
+        gridLayout->addWidget(labelStatsValue8, 3, 5, 1, 1);
+
+        labelStatsValue7 = new QLabel(gridLayoutWidget);
+        labelStatsValue7->setObjectName(QStringLiteral("labelStatsValue7"));
+
+        gridLayout->addWidget(labelStatsValue7, 3, 2, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_3, 1, 6, 1, 1);
+
+        labelStatsValue2 = new QLabel(gridLayoutWidget);
+        labelStatsValue2->setObjectName(QStringLiteral("labelStatsValue2"));
+
+        gridLayout->addWidget(labelStatsValue2, 1, 5, 1, 1);
+
+        labelStatsValue3 = new QLabel(gridLayoutWidget);
+        labelStatsValue3->setObjectName(QStringLiteral("labelStatsValue3"));
+
+        gridLayout->addWidget(labelStatsValue3, 1, 8, 1, 1);
+
+        labelStats8 = new QLabel(gridLayoutWidget);
+        labelStats8->setObjectName(QStringLiteral("labelStats8"));
+
+        gridLayout->addWidget(labelStats8, 3, 4, 1, 1);
+
+        labelStats4 = new QLabel(gridLayoutWidget);
+        labelStats4->setObjectName(QStringLiteral("labelStats4"));
+
+        gridLayout->addWidget(labelStats4, 2, 1, 1, 1);
+
+        labelStats3 = new QLabel(gridLayoutWidget);
+        labelStats3->setObjectName(QStringLiteral("labelStats3"));
+
+        gridLayout->addWidget(labelStats3, 1, 7, 1, 1);
+
+        labelStats6 = new QLabel(gridLayoutWidget);
+        labelStats6->setObjectName(QStringLiteral("labelStats6"));
+
+        gridLayout->addWidget(labelStats6, 2, 7, 1, 1);
+
+        labelStats7 = new QLabel(gridLayoutWidget);
+        labelStats7->setObjectName(QStringLiteral("labelStats7"));
+
+        gridLayout->addWidget(labelStats7, 3, 1, 1, 1);
+
+        labelStatsValue9 = new QLabel(gridLayoutWidget);
+        labelStatsValue9->setObjectName(QStringLiteral("labelStatsValue9"));
+
+        gridLayout->addWidget(labelStatsValue9, 3, 8, 1, 1);
+
+        labelStatsValue6 = new QLabel(gridLayoutWidget);
+        labelStatsValue6->setObjectName(QStringLiteral("labelStatsValue6"));
+
+        gridLayout->addWidget(labelStatsValue6, 2, 8, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 1, 3, 1, 1);
+
+        labelStatsValue5 = new QLabel(gridLayoutWidget);
+        labelStatsValue5->setObjectName(QStringLiteral("labelStatsValue5"));
+
+        gridLayout->addWidget(labelStatsValue5, 2, 5, 1, 1);
+
+        labelStats9 = new QLabel(gridLayoutWidget);
+        labelStats9->setObjectName(QStringLiteral("labelStats9"));
+
+        gridLayout->addWidget(labelStats9, 3, 7, 1, 1);
+
+        labelStats5 = new QLabel(gridLayoutWidget);
+        labelStats5->setObjectName(QStringLiteral("labelStats5"));
+
+        gridLayout->addWidget(labelStats5, 2, 4, 1, 1);
+
+        labelStatsValue4 = new QLabel(gridLayoutWidget);
+        labelStatsValue4->setObjectName(QStringLiteral("labelStatsValue4"));
+
+        gridLayout->addWidget(labelStatsValue4, 2, 2, 1, 1);
+
+        labelStats1 = new QLabel(gridLayoutWidget);
+        labelStats1->setObjectName(QStringLiteral("labelStats1"));
+
+        gridLayout->addWidget(labelStats1, 1, 1, 1, 1);
+
+        labelStats2 = new QLabel(gridLayoutWidget);
+        labelStats2->setObjectName(QStringLiteral("labelStats2"));
+
+        gridLayout->addWidget(labelStats2, 1, 4, 1, 1);
+
+        labelStatsValue1 = new QLabel(gridLayoutWidget);
+        labelStatsValue1->setObjectName(QStringLiteral("labelStatsValue1"));
+
+        gridLayout->addWidget(labelStatsValue1, 1, 2, 1, 1);
+
+        line_3 = new QFrame(gridLayoutWidget);
+        line_3->setObjectName(QStringLiteral("line_3"));
+        line_3->setFrameShape(QFrame::VLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+
+        gridLayout->addWidget(line_3, 1, 0, 1, 1);
+
+
+        verticalLayout->addLayout(gridLayout);
 
         line = new QFrame(gridLayoutWidget);
         line->setObjectName(QStringLiteral("line"));
         line->setFrameShape(QFrame::VLine);
         line->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line, 5, 0, 1, 1);
+        verticalLayout->addWidget(line);
 
-        verticalSlider = new QSlider(gridLayoutWidget);
-        verticalSlider->setObjectName(QStringLiteral("verticalSlider"));
-        verticalSlider->setOrientation(Qt::Vertical);
+        horizontalLayout_other = new QHBoxLayout();
+        horizontalLayout_other->setSpacing(6);
+        horizontalLayout_other->setObjectName(QStringLiteral("horizontalLayout_other"));
+        line_2 = new QFrame(gridLayoutWidget);
+        line_2->setObjectName(QStringLiteral("line_2"));
+        line_2->setFrameShape(QFrame::VLine);
+        line_2->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(verticalSlider, 5, 1, 1, 1);
+        horizontalLayout_other->addWidget(line_2);
 
-        speedLabel = new QLabel(gridLayoutWidget);
-        speedLabel->setObjectName(QStringLiteral("speedLabel"));
+        progressBar = new QProgressBar(gridLayoutWidget);
+        progressBar->setObjectName(QStringLiteral("progressBar"));
+        progressBar->setValue(24);
 
-        gridLayout->addWidget(speedLabel, 4, 1, 1, 1);
+        horizontalLayout_other->addWidget(progressBar);
 
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        labelLeftMotorValue = new QLabel(gridLayoutWidget);
+        labelLeftMotorValue->setObjectName(QStringLiteral("labelLeftMotorValue"));
 
-        gridLayout->addItem(verticalSpacer_3, 1, 2, 1, 1);
+        verticalLayout_2->addWidget(labelLeftMotorValue, 0, Qt::AlignHCenter);
+
+        verticalSliderLeft = new QSlider(gridLayoutWidget);
+        verticalSliderLeft->setObjectName(QStringLiteral("verticalSliderLeft"));
+        verticalSliderLeft->setOrientation(Qt::Vertical);
+
+        verticalLayout_2->addWidget(verticalSliderLeft, 0, Qt::AlignHCenter);
+
+        label_2 = new QLabel(gridLayoutWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        verticalLayout_2->addWidget(label_2, 0, Qt::AlignHCenter);
+
+
+        horizontalLayout_other->addLayout(verticalLayout_2);
+
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        labelRearMotorValue = new QLabel(gridLayoutWidget);
+        labelRearMotorValue->setObjectName(QStringLiteral("labelRearMotorValue"));
+
+        verticalLayout_3->addWidget(labelRearMotorValue, 0, Qt::AlignHCenter);
+
+        verticalSliderBack = new QSlider(gridLayoutWidget);
+        verticalSliderBack->setObjectName(QStringLiteral("verticalSliderBack"));
+        verticalSliderBack->setOrientation(Qt::Vertical);
+
+        verticalLayout_3->addWidget(verticalSliderBack, 0, Qt::AlignHCenter);
+
+        label_3 = new QLabel(gridLayoutWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        verticalLayout_3->addWidget(label_3, 0, Qt::AlignHCenter);
+
+
+        horizontalLayout_other->addLayout(verticalLayout_3);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        labelRightMotorValue = new QLabel(gridLayoutWidget);
+        labelRightMotorValue->setObjectName(QStringLiteral("labelRightMotorValue"));
+
+        verticalLayout_4->addWidget(labelRightMotorValue, 0, Qt::AlignHCenter);
+
+        verticalSliderRight = new QSlider(gridLayoutWidget);
+        verticalSliderRight->setObjectName(QStringLiteral("verticalSliderRight"));
+        verticalSliderRight->setOrientation(Qt::Vertical);
+
+        verticalLayout_4->addWidget(verticalSliderRight, 0, Qt::AlignHCenter);
+
+        label_4 = new QLabel(gridLayoutWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        verticalLayout_4->addWidget(label_4, 0, Qt::AlignHCenter);
+
+
+        horizontalLayout_other->addLayout(verticalLayout_4);
+
+        graphicsView = new QGraphicsView(gridLayoutWidget);
+        graphicsView->setObjectName(QStringLiteral("graphicsView"));
+        graphicsView->setMaximumSize(QSize(16777215, 399));
+
+        horizontalLayout_other->addWidget(graphicsView);
+
+        line_4 = new QFrame(gridLayoutWidget);
+        line_4->setObjectName(QStringLiteral("line_4"));
+        line_4->setFrameShape(QFrame::VLine);
+        line_4->setFrameShadow(QFrame::Sunken);
+
+        horizontalLayout_other->addWidget(line_4);
+
+
+        verticalLayout->addLayout(horizontalLayout_other);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -114,6 +367,11 @@ public:
 
         menuBar->addAction(menuSettings->menuAction());
         menuBar->addAction(menuData->menuAction());
+        menuSettings->addAction(actionSpeed);
+        menuSettings->addAction(actionDepth);
+        menuSettings->addAction(actionBattery_Life);
+        menuSettings->addAction(actionPressure);
+        menuSettings->addAction(actionTempurature);
         menuSettings->addAction(actionHotkeys);
 
         retranslateUi(MainWindow);
@@ -125,7 +383,36 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         actionHotkeys->setText(QApplication::translate("MainWindow", "Hotkeys", 0));
-        speedLabel->setText(QApplication::translate("MainWindow", "0.00%", 0));
+        actionSpeed->setText(QApplication::translate("MainWindow", "Speed", 0));
+        actionBattery_Life->setText(QApplication::translate("MainWindow", "Battery Life", 0));
+        actionPressure->setText(QApplication::translate("MainWindow", "Pressure", 0));
+        actionTempurature->setText(QApplication::translate("MainWindow", "Tempurature", 0));
+        actionDepth->setText(QApplication::translate("MainWindow", "Depth", 0));
+        labelStatistics->setText(QApplication::translate("MainWindow", "  Statistics:", 0));
+        labelStatsValue8->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue7->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue2->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue3->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStats8->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats4->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats3->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats6->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats7->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStatsValue9->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue6->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue5->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStats9->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats5->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStatsValue4->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStats1->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats2->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStatsValue1->setText(QApplication::translate("MainWindow", "num", 0));
+        labelLeftMotorValue->setText(QString());
+        label_2->setText(QApplication::translate("MainWindow", "Left Motor", 0));
+        labelRearMotorValue->setText(QString());
+        label_3->setText(QApplication::translate("MainWindow", "Rear Motor", 0));
+        labelRightMotorValue->setText(QString());
+        label_4->setText(QApplication::translate("MainWindow", "Right Motor", 0));
         menuSettings->setTitle(QApplication::translate("MainWindow", "Settings", 0));
         menuData->setTitle(QApplication::translate("MainWindow", "Data", 0));
     } // retranslateUi

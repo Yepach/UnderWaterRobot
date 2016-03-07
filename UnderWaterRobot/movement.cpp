@@ -43,12 +43,12 @@ void Movement::setUpdown(double z) {
 }
 
 void Movement::setSpeed(double speed) {
-    if(checkConstraints(speed) && speed >= 0.00)
+    if(checkConstraints(speed) && speed >= -0.01)
         Speed = speed;
 }
 
 bool Movement::checkConstraints(double value){
-    if(value > 1.00 || value < -1)
+    if(value > 1.01 || value < -1)
         return false;
     else
         return true;

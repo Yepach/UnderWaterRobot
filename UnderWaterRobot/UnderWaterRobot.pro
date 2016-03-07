@@ -18,14 +18,16 @@ SOURCES += main.cpp\
     communication.cpp \
     movement.cpp \
     hotkeys.cpp \
-    hotkeyswindow.cpp
+    hotkeyswindow.cpp \
+    settings.cpp
 
 HEADERS  += mainwindow.h \
     controller.h \
     communication.h \
     movement.h \
     hotkeys.h \
-    hotkeyswindow.h
+    hotkeyswindow.h \
+    settings.h
 
 FORMS    += mainwindow.ui \
     hotkeyswindow.ui

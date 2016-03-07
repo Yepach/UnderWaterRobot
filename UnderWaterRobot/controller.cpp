@@ -43,10 +43,12 @@ Controller::Controller()
 {
     m = new Movement();
     h = new Hotkeys();
+    s = new Settings();
 }
 
 double Controller::getSpeed(){return m->getSpeed();}
 Hotkeys *Controller::getHotkeys(){return h;}
+Settings *Controller::getSettings(){return s;}
 
 QString Controller::getMovementsMessage()
 {
@@ -78,8 +80,6 @@ QString Controller::getMovementsMessage()
         message += QLatin1String("Turn Right ");
     if(m->getYaw()<0)
         message += QLatin1String("Turn Left ");
-
-     message += QString::number(m->getSpeed());
 
     return message;
 }
@@ -114,9 +114,9 @@ void Controller::keyPressEvent(QKeyEvent* event)
         m->setYaw(-1);
 
     if(h->getSpeed_Increase() == event->key())
-        m->setSpeed(m->getSpeed()+.01);
+        m->setSpeed(m->getSpeed()+0.02);
     if(h->getSpeed_Decrease() == event->key())
-        m->setSpeed(m->getSpeed()-.01);
+        m->setSpeed(m->getSpeed()-0.02);
 
     //if(h->getPicture_Capture() == event->key())
         //TODO picture functionality

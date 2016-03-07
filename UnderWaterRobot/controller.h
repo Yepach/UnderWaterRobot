@@ -4,6 +4,7 @@
 #include "QString"
 #include "movement.h"
 #include "hotkeys.h"
+#include "settings.h"
 #include <QKeyEvent>
 #include <QtGui>
 #include <QWidget>
@@ -19,6 +20,7 @@ public:
     void keyReleaseEvent(QKeyEvent* event);
     double getSpeed();
     Hotkeys *getHotkeys();
+    Settings *getSettings();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
@@ -26,6 +28,7 @@ protected:
 private:
     Movement *m;
     Hotkeys *h;
+    Settings *s;
 };
 
 #endif // CONTROLLER_H
