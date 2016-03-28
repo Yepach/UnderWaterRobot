@@ -51,7 +51,16 @@ private slots:
 
     void on_verticalSliderRight_valueChanged(int value);
 
+    void on_actionKeyboard_toggled(bool arg1);
+
+    void on_actionCamera_1_triggered();
+
+    void on_actionCamera_2_triggered();
+
+    void on_actionKeyboard_triggered();
+
 private:
+    bool Keyboard;
     Ui::MainWindow *ui;
     QLabel *StatMovement;
     Controller *c;
@@ -60,7 +69,8 @@ private:
             pixDownFull, pixUpFull, pixRightFull, pixLeftFull, pixForwardFull, pixBackwardsFull,
             pixDownFullCounter, pixLeftFullCounter, pixForwardFullCounter, pixBackwardsFullClockwise,
             pixDownFullClockwise, pixLeftFullClockwise,pixForwardCounter, pixBackwardsClockwise ,
-            pixDownClockwise, pixLeftClockwise, pixDownCounter, pixLeftCounter;
+            pixDownClockwise, pixLeftClockwise, pixDownCounter, pixLeftCounter,
+            pixCameraCannotConnect, pixCameraCannotConnect2;
 };
 
 #endif // MAINWINDOW_H

@@ -7,16 +7,7 @@ Settings::Settings()
     set[2].name = "Depth";
     set[3].name = "Pressure";
     set[4].name = "Temperature";
-
-    for (int i = 0; i < n; i ++){
-         set[i].display = true;
-         set[i].value = 0;
-    }
-
 }
-/*void Settings::setDisplay(int n, bool arg){
-    set[n].display = arg;
-}*/
 /*  Which seetings do we need
  *  - Speed
  *  - Battery Life

@@ -2,11 +2,14 @@
 #define HOTKEYS_H
 
 #include <QKeyEvent>
+#include <QTextStream>
 
 class Hotkeys: public QObject
 {
 public:
-    Hotkeys();
+    Hotkeys(int keyboard);
+    void saveHotkeys();
+    void loadHotkeys();
     void resetKeys();
     void setForward(int forw);
     void keyPressEvent(QKeyEvent* event);
@@ -52,7 +55,8 @@ protected:
 
 private:
     int Forward, Backwards, Straft_Right, Straft_Left, Up, Down, Pitch_Up, Pitch_Down, Roll_Right, Roll_Left, Turn_Right, Turn_Left,
-    Speed_Increase, Speed_Decrease, Picture_Capture;
+    Speed_Increase, Speed_Decrease, Picture_Capture, Keyboard;
+
 
 };
 

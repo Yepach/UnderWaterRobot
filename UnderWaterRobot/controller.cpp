@@ -42,12 +42,14 @@
 Controller::Controller()
 {
     m = new Movement();
-    h = new Hotkeys();
+    hKeybaord = new Hotkeys(1);
+    hJoystick = new Hotkeys(0);
     s = new Settings();
 }
 
 double Controller::getSpeed(){return m->getSpeed();}
-Hotkeys *Controller::getHotkeys(){return h;}
+Hotkeys *Controller::getKeyboardHotkeys(){return hKeybaord;}
+Hotkeys *Controller::getJoystickHotkeys(){return hJoystick;}
 Settings *Controller::getSettings(){return s;}
 Movement *Controller::getMovement(){return m;}
 
@@ -87,6 +89,10 @@ QString Controller::getMovementsMessage()
 
 void Controller::keyPressEvent(QKeyEvent* event)
 {
+    if(Keyboard)
+        h = hKeybaord;
+    else
+        h = hJoystick;
     if(h->getForward() == event->key())
         m->setForwardBackward(1);
     if(h->getBackwards() == event->key())

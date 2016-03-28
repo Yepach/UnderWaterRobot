@@ -24,5 +24,7 @@
         <file>ArrowFullUp.png</file>
         <file>ArrowLeftClockwise.png</file>
         <file>ArrowLeftCounter.png</file>
+        <file>CameraCannotConnect.png</file>
+        <file>CameraCannotConnect2.png</file>
     </qresource>
 </RCC>

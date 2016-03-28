@@ -19,17 +19,22 @@ public:
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     double getSpeed();
-    Hotkeys *getHotkeys();
+    Hotkeys *getKeyboardHotkeys();
+    Hotkeys *getJoystickHotkeys();
     Settings *getSettings();
     Movement *getMovement();
+    void setKeyboard(bool keyboard){Keyboard = keyboard;}
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
 
 private:
     Movement *m;
+    Hotkeys *hKeybaord;
+    Hotkeys *hJoystick;
     Hotkeys *h;
     Settings *s;
+    bool Keyboard;
 };
 
 #endif // CONTROLLER_H

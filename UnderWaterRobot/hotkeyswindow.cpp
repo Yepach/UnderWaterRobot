@@ -8,6 +8,7 @@ hotkeysWindow::hotkeysWindow(Hotkeys *h, QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle("Hotkeys");
     this->h = h;
+
     displayButtonsText();
     setTabOrder(ui->forwardHotkeyButton,ui->backwardsHotkeyButton);
     setTabOrder(ui->backwardsHotkeyButton, ui->speedIncreaseHotkeyButton);
@@ -64,10 +65,10 @@ void hotkeysWindow::doThingsWhenClicked(QPushButton *b)
         QApplication::processEvents();
     }
     h->changed = false;
-
     checkDuplicationAndRemove(h->changedKey);
     b->setText(h->buttonWordBank(h->changedKey));
     b->removeEventFilter(h);
+
 }
 void hotkeysWindow::on_forwardHotkeyButton_clicked()
 {
@@ -213,5 +214,15 @@ void hotkeysWindow::on_defaultKeysButton_clicked()
 {
     h->resetKeys();
     displayButtonsText();
-    // Maybe set a QmessageBox to verify
+}
+
+void hotkeysWindow::on_pushButton_clicked()
+{
+    h->saveHotkeys();
+    ui->exitButton->click();
+}
+
+void hotkeysWindow::on_exitButton_clicked()
+{
+    h->loadHotkeys();
 }

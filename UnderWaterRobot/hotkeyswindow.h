@@ -39,6 +39,10 @@ private slots:
     void on_takePictureHotkeyButtton_clicked();
     void on_defaultKeysButton_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_exitButton_clicked();
+
 private:
     Ui::hotkeysWindow *ui;
     Hotkeys *h;

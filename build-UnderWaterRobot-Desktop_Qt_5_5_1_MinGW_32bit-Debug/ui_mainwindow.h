@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -41,33 +40,36 @@ public:
     QAction *actionPressure;
     QAction *actionTempurature;
     QAction *actionDepth;
+    QAction *actionCamera_1;
+    QAction *actionCamera_2;
+    QAction *actionKeyboard;
     QWidget *centralWidget;
     QWidget *gridLayoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *labelStatistics;
     QGridLayout *gridLayout;
-    QSpacerItem *horizontalSpacer_4;
+    QLabel *labelStats1;
+    QLabel *labelStats2;
+    QSpacerItem *horizontalSpacer;
     QLabel *labelStatsValue8;
     QLabel *labelStatsValue7;
-    QSpacerItem *horizontalSpacer_3;
-    QLabel *labelStatsValue2;
-    QLabel *labelStatsValue3;
-    QLabel *labelStats8;
-    QLabel *labelStats4;
-    QLabel *labelStats3;
-    QLabel *labelStats6;
-    QLabel *labelStats7;
-    QLabel *labelStatsValue9;
-    QLabel *labelStatsValue6;
-    QSpacerItem *horizontalSpacer;
-    QLabel *labelStatsValue5;
+    QSpacerItem *horizontalSpacer_4;
+    QLabel *labelStatsValue1;
     QLabel *labelStats9;
     QLabel *labelStats5;
     QLabel *labelStatsValue4;
-    QLabel *labelStats1;
-    QLabel *labelStats2;
-    QLabel *labelStatsValue1;
+    QLabel *labelStatsValue5;
     QFrame *line_3;
+    QSpacerItem *horizontalSpacer_3;
+    QLabel *labelStatsValue3;
+    QLabel *labelStats4;
+    QLabel *labelStatsValue2;
+    QLabel *labelStats8;
+    QLabel *labelStats6;
+    QLabel *labelStats3;
+    QLabel *labelStatsValue6;
+    QLabel *labelStatsValue9;
+    QLabel *labelStats7;
     QFrame *line;
     QHBoxLayout *horizontalLayout_other;
     QFrame *line_2;
@@ -85,7 +87,7 @@ public:
     QSlider *verticalSliderRight;
     QLabel *label_4;
     QVBoxLayout *verticalLayout_5;
-    QGraphicsView *graphicsView;
+    QLabel *labelView;
     QHBoxLayout *horizontalLayout_2;
     QLabel *labelUpImage;
     QHBoxLayout *horizontalLayout_3;
@@ -99,6 +101,8 @@ public:
     QFrame *line_4;
     QMenuBar *menuBar;
     QMenu *menuSettings;
+    QAction *action;
+    QMenu *menuStatistics;
     QMenu *menuData;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -125,6 +129,13 @@ public:
         actionDepth = new QAction(MainWindow);
         actionDepth->setObjectName(QStringLiteral("actionDepth"));
         actionDepth->setCheckable(true);
+        actionCamera_1 = new QAction(MainWindow);
+        actionCamera_1->setObjectName(QStringLiteral("actionCamera_1"));
+        actionCamera_2 = new QAction(MainWindow);
+        actionCamera_2->setObjectName(QStringLiteral("actionCamera_2"));
+        actionKeyboard = new QAction(MainWindow);
+        actionKeyboard->setObjectName(QStringLiteral("actionKeyboard"));
+        actionKeyboard->setCheckable(true);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayoutWidget = new QWidget(centralWidget);
@@ -143,9 +154,19 @@ public:
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        labelStats1 = new QLabel(gridLayoutWidget);
+        labelStats1->setObjectName(QStringLiteral("labelStats1"));
 
-        gridLayout->addItem(horizontalSpacer_4, 1, 9, 1, 1);
+        gridLayout->addWidget(labelStats1, 1, 1, 1, 1);
+
+        labelStats2 = new QLabel(gridLayoutWidget);
+        labelStats2->setObjectName(QStringLiteral("labelStats2"));
+
+        gridLayout->addWidget(labelStats2, 1, 4, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 1, 3, 1, 1);
 
         labelStatsValue8 = new QLabel(gridLayoutWidget);
         labelStatsValue8->setObjectName(QStringLiteral("labelStatsValue8"));
@@ -157,63 +178,14 @@ public:
 
         gridLayout->addWidget(labelStatsValue7, 3, 2, 1, 1);
 
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_3, 1, 6, 1, 1);
+        gridLayout->addItem(horizontalSpacer_4, 1, 9, 1, 1);
 
-        labelStatsValue2 = new QLabel(gridLayoutWidget);
-        labelStatsValue2->setObjectName(QStringLiteral("labelStatsValue2"));
+        labelStatsValue1 = new QLabel(gridLayoutWidget);
+        labelStatsValue1->setObjectName(QStringLiteral("labelStatsValue1"));
 
-        gridLayout->addWidget(labelStatsValue2, 1, 5, 1, 1);
-
-        labelStatsValue3 = new QLabel(gridLayoutWidget);
-        labelStatsValue3->setObjectName(QStringLiteral("labelStatsValue3"));
-
-        gridLayout->addWidget(labelStatsValue3, 1, 8, 1, 1);
-
-        labelStats8 = new QLabel(gridLayoutWidget);
-        labelStats8->setObjectName(QStringLiteral("labelStats8"));
-
-        gridLayout->addWidget(labelStats8, 3, 4, 1, 1);
-
-        labelStats4 = new QLabel(gridLayoutWidget);
-        labelStats4->setObjectName(QStringLiteral("labelStats4"));
-
-        gridLayout->addWidget(labelStats4, 2, 1, 1, 1);
-
-        labelStats3 = new QLabel(gridLayoutWidget);
-        labelStats3->setObjectName(QStringLiteral("labelStats3"));
-
-        gridLayout->addWidget(labelStats3, 1, 7, 1, 1);
-
-        labelStats6 = new QLabel(gridLayoutWidget);
-        labelStats6->setObjectName(QStringLiteral("labelStats6"));
-
-        gridLayout->addWidget(labelStats6, 2, 7, 1, 1);
-
-        labelStats7 = new QLabel(gridLayoutWidget);
-        labelStats7->setObjectName(QStringLiteral("labelStats7"));
-
-        gridLayout->addWidget(labelStats7, 3, 1, 1, 1);
-
-        labelStatsValue9 = new QLabel(gridLayoutWidget);
-        labelStatsValue9->setObjectName(QStringLiteral("labelStatsValue9"));
-
-        gridLayout->addWidget(labelStatsValue9, 3, 8, 1, 1);
-
-        labelStatsValue6 = new QLabel(gridLayoutWidget);
-        labelStatsValue6->setObjectName(QStringLiteral("labelStatsValue6"));
-
-        gridLayout->addWidget(labelStatsValue6, 2, 8, 1, 1);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 1, 3, 1, 1);
-
-        labelStatsValue5 = new QLabel(gridLayoutWidget);
-        labelStatsValue5->setObjectName(QStringLiteral("labelStatsValue5"));
-
-        gridLayout->addWidget(labelStatsValue5, 2, 5, 1, 1);
+        gridLayout->addWidget(labelStatsValue1, 1, 2, 1, 1);
 
         labelStats9 = new QLabel(gridLayoutWidget);
         labelStats9->setObjectName(QStringLiteral("labelStats9"));
@@ -230,20 +202,10 @@ public:
 
         gridLayout->addWidget(labelStatsValue4, 2, 2, 1, 1);
 
-        labelStats1 = new QLabel(gridLayoutWidget);
-        labelStats1->setObjectName(QStringLiteral("labelStats1"));
+        labelStatsValue5 = new QLabel(gridLayoutWidget);
+        labelStatsValue5->setObjectName(QStringLiteral("labelStatsValue5"));
 
-        gridLayout->addWidget(labelStats1, 1, 1, 1, 1);
-
-        labelStats2 = new QLabel(gridLayoutWidget);
-        labelStats2->setObjectName(QStringLiteral("labelStats2"));
-
-        gridLayout->addWidget(labelStats2, 1, 4, 1, 1);
-
-        labelStatsValue1 = new QLabel(gridLayoutWidget);
-        labelStatsValue1->setObjectName(QStringLiteral("labelStatsValue1"));
-
-        gridLayout->addWidget(labelStatsValue1, 1, 2, 1, 1);
+        gridLayout->addWidget(labelStatsValue5, 2, 5, 1, 1);
 
         line_3 = new QFrame(gridLayoutWidget);
         line_3->setObjectName(QStringLiteral("line_3"));
@@ -251,6 +213,55 @@ public:
         line_3->setFrameShadow(QFrame::Sunken);
 
         gridLayout->addWidget(line_3, 1, 0, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_3, 1, 6, 1, 1);
+
+        labelStatsValue3 = new QLabel(gridLayoutWidget);
+        labelStatsValue3->setObjectName(QStringLiteral("labelStatsValue3"));
+
+        gridLayout->addWidget(labelStatsValue3, 1, 8, 1, 1);
+
+        labelStats4 = new QLabel(gridLayoutWidget);
+        labelStats4->setObjectName(QStringLiteral("labelStats4"));
+
+        gridLayout->addWidget(labelStats4, 2, 1, 1, 1);
+
+        labelStatsValue2 = new QLabel(gridLayoutWidget);
+        labelStatsValue2->setObjectName(QStringLiteral("labelStatsValue2"));
+
+        gridLayout->addWidget(labelStatsValue2, 1, 5, 1, 1);
+
+        labelStats8 = new QLabel(gridLayoutWidget);
+        labelStats8->setObjectName(QStringLiteral("labelStats8"));
+
+        gridLayout->addWidget(labelStats8, 3, 4, 1, 1);
+
+        labelStats6 = new QLabel(gridLayoutWidget);
+        labelStats6->setObjectName(QStringLiteral("labelStats6"));
+
+        gridLayout->addWidget(labelStats6, 2, 7, 1, 1);
+
+        labelStats3 = new QLabel(gridLayoutWidget);
+        labelStats3->setObjectName(QStringLiteral("labelStats3"));
+
+        gridLayout->addWidget(labelStats3, 1, 7, 1, 1);
+
+        labelStatsValue6 = new QLabel(gridLayoutWidget);
+        labelStatsValue6->setObjectName(QStringLiteral("labelStatsValue6"));
+
+        gridLayout->addWidget(labelStatsValue6, 2, 8, 1, 1);
+
+        labelStatsValue9 = new QLabel(gridLayoutWidget);
+        labelStatsValue9->setObjectName(QStringLiteral("labelStatsValue9"));
+
+        gridLayout->addWidget(labelStatsValue9, 3, 8, 1, 1);
+
+        labelStats7 = new QLabel(gridLayoutWidget);
+        labelStats7->setObjectName(QStringLiteral("labelStats7"));
+
+        gridLayout->addWidget(labelStats7, 3, 1, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -347,11 +358,10 @@ public:
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        graphicsView = new QGraphicsView(gridLayoutWidget);
-        graphicsView->setObjectName(QStringLiteral("graphicsView"));
-        graphicsView->setMaximumSize(QSize(16777215, 399));
+        labelView = new QLabel(gridLayoutWidget);
+        labelView->setObjectName(QStringLiteral("labelView"));
 
-        verticalLayout_5->addWidget(graphicsView);
+        verticalLayout_5->addWidget(labelView);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
@@ -426,6 +436,10 @@ public:
         menuBar->setGeometry(QRect(0, 0, 755, 21));
         menuSettings = new QMenu(menuBar);
         menuSettings->setObjectName(QStringLiteral("menuSettings"));
+        action = new QAction(menuSettings);
+        action->setObjectName(QStringLiteral("action"));
+        menuStatistics = new QMenu(menuSettings);
+        menuStatistics->setObjectName(QStringLiteral("menuStatistics"));
         menuData = new QMenu(menuBar);
         menuData->setObjectName(QStringLiteral("menuData"));
         MainWindow->setMenuBar(menuBar);
@@ -438,12 +452,16 @@ public:
 
         menuBar->addAction(menuSettings->menuAction());
         menuBar->addAction(menuData->menuAction());
-        menuSettings->addAction(actionSpeed);
-        menuSettings->addAction(actionDepth);
-        menuSettings->addAction(actionBattery_Life);
-        menuSettings->addAction(actionPressure);
-        menuSettings->addAction(actionTempurature);
+        menuSettings->addAction(menuStatistics->menuAction());
+        menuSettings->addAction(actionCamera_1);
+        menuSettings->addAction(actionCamera_2);
+        menuSettings->addAction(actionKeyboard);
         menuSettings->addAction(actionHotkeys);
+        menuStatistics->addAction(actionSpeed);
+        menuStatistics->addAction(actionBattery_Life);
+        menuStatistics->addAction(actionDepth);
+        menuStatistics->addAction(actionPressure);
+        menuStatistics->addAction(actionTempurature);
 
         retranslateUi(MainWindow);
 
@@ -459,31 +477,35 @@ public:
         actionPressure->setText(QApplication::translate("MainWindow", "Pressure", 0));
         actionTempurature->setText(QApplication::translate("MainWindow", "Tempurature", 0));
         actionDepth->setText(QApplication::translate("MainWindow", "Depth", 0));
-        labelStatistics->setText(QApplication::translate("MainWindow", "  Statistics:", 0));
+        actionCamera_1->setText(QApplication::translate("MainWindow", "Camera 1", 0));
+        actionCamera_2->setText(QApplication::translate("MainWindow", "Camera 2", 0));
+        actionKeyboard->setText(QApplication::translate("MainWindow", "Keyboard", 0));
+        labelStatistics->setText(QApplication::translate("MainWindow", "Statistics", 0));
+        labelStats1->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats2->setText(QApplication::translate("MainWindow", "text", 0));
         labelStatsValue8->setText(QApplication::translate("MainWindow", "num", 0));
         labelStatsValue7->setText(QApplication::translate("MainWindow", "num", 0));
-        labelStatsValue2->setText(QApplication::translate("MainWindow", "num", 0));
-        labelStatsValue3->setText(QApplication::translate("MainWindow", "num", 0));
-        labelStats8->setText(QApplication::translate("MainWindow", "text", 0));
-        labelStats4->setText(QApplication::translate("MainWindow", "text", 0));
-        labelStats3->setText(QApplication::translate("MainWindow", "text", 0));
-        labelStats6->setText(QApplication::translate("MainWindow", "text", 0));
-        labelStats7->setText(QApplication::translate("MainWindow", "text", 0));
-        labelStatsValue9->setText(QApplication::translate("MainWindow", "num", 0));
-        labelStatsValue6->setText(QApplication::translate("MainWindow", "num", 0));
-        labelStatsValue5->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue1->setText(QApplication::translate("MainWindow", "num", 0));
         labelStats9->setText(QApplication::translate("MainWindow", "text", 0));
         labelStats5->setText(QApplication::translate("MainWindow", "text", 0));
         labelStatsValue4->setText(QApplication::translate("MainWindow", "num", 0));
-        labelStats1->setText(QApplication::translate("MainWindow", "text", 0));
-        labelStats2->setText(QApplication::translate("MainWindow", "text", 0));
-        labelStatsValue1->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue5->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue3->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStats4->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStatsValue2->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStats8->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats6->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStats3->setText(QApplication::translate("MainWindow", "text", 0));
+        labelStatsValue6->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStatsValue9->setText(QApplication::translate("MainWindow", "num", 0));
+        labelStats7->setText(QApplication::translate("MainWindow", "text", 0));
         labelLeftMotorValue->setText(QString());
         label_2->setText(QApplication::translate("MainWindow", "Left Motor", 0));
         labelRearMotorValue->setText(QString());
         label_3->setText(QApplication::translate("MainWindow", "Rear Motor", 0));
         labelRightMotorValue->setText(QString());
         label_4->setText(QApplication::translate("MainWindow", "Right Motor", 0));
+        labelView->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         labelUpImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         labelLeftImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         labelForwardImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
@@ -491,6 +513,7 @@ public:
         labelRightImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         labelDownImage->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         menuSettings->setTitle(QApplication::translate("MainWindow", "Settings", 0));
+        menuStatistics->setTitle(QApplication::translate("MainWindow", "Statistics", 0));
         menuData->setTitle(QApplication::translate("MainWindow", "Data", 0));
     } // retranslateUi
 

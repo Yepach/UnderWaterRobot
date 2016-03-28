@@ -135,7 +135,34 @@ compiler_rcc_make_all: release/qrc_resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_resources.cpp
 release/qrc_resources.cpp: ../UnderWaterRobot/resources.qrc \
-		../UnderWaterRobot/SpaceCat.jpg
+		../UnderWaterRobot/ArrowFullLeftCounter.png \
+		../UnderWaterRobot/ArrowBlankRight.png \
+		../UnderWaterRobot/ArrowFullDownCounter.png \
+		../UnderWaterRobot/ArrowFullRight.png \
+		../UnderWaterRobot/ArrowBlankLeft.png \
+		../UnderWaterRobot/CameraCannotConnect.png \
+		../UnderWaterRobot/ArrowFullForwardCounter.png \
+		../UnderWaterRobot/ArrowFullUp.png \
+		../UnderWaterRobot/ArrowLeftClockwise.png \
+		../UnderWaterRobot/ArrowBlankBackwards.png \
+		../UnderWaterRobot/ArrowBlankForward.png \
+		../UnderWaterRobot/ArrowFullDownClockwise.png \
+		../UnderWaterRobot/ArrowLeftCounter.png \
+		../UnderWaterRobot/ArrowFullBackwardsClockwise.png \
+		../UnderWaterRobot/CameraCannotConnect2.png \
+		../UnderWaterRobot/ArrowBackwardsClockwise.png \
+		../UnderWaterRobot/JoystickHotkeys.txt \
+		../UnderWaterRobot/ArrowBlankUp.png \
+		../UnderWaterRobot/ArrowForwardCounter.png \
+		../UnderWaterRobot/ArrowDownClockwise.png \
+		../UnderWaterRobot/ArrowDownCounter.png \
+		../UnderWaterRobot/ArrowFullDown.png \
+		../UnderWaterRobot/ArrowFullForward.png \
+		../UnderWaterRobot/ArrowFullLeft.png \
+		../UnderWaterRobot/ArrowBlankDown.png \
+		../UnderWaterRobot/ArrowFullBackwards.png \
+		../UnderWaterRobot/ArrowFullLeftClockwise.png \
+		../UnderWaterRobot/KeyboardHotkeys.txt
 	D:\Programming\QT\5.5\mingw492_32\bin\rcc.exe -name resources ..\UnderWaterRobot\resources.qrc -o release\qrc_resources.cpp
 
 compiler_moc_header_make_all: release/moc_mainwindow.cpp release/moc_hotkeyswindow.cpp
@@ -463,6 +490,7 @@ release/moc_mainwindow.cpp: ../../../QT/5.5/mingw492_32/include/QtWidgets/QMainW
 		../../../QT/5.5/mingw492_32/include/QtCore/QString \
 		../UnderWaterRobot/movement.h \
 		../UnderWaterRobot/hotkeys.h \
+		../../../QT/5.5/mingw492_32/include/QtCore/QTextStream \
 		../UnderWaterRobot/settings.h \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/QWidget \
 		../UnderWaterRobot/hotkeyswindow.h \
@@ -578,6 +606,7 @@ release/moc_hotkeyswindow.cpp: ../../../QT/5.5/mingw492_32/include/QtWidgets/QDi
 		../../../QT/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		../UnderWaterRobot/hotkeys.h \
 		../../../QT/5.5/mingw492_32/include/QtGui/QKeyEvent \
+		../../../QT/5.5/mingw492_32/include/QtCore/QTextStream \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/QMessageBox \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/qmessagebox.h \
 		../UnderWaterRobot/hotkeyswindow.h
@@ -929,6 +958,7 @@ release/main.o: ../UnderWaterRobot/main.cpp ../UnderWaterRobot/mainwindow.h \
 		../../../QT/5.5/mingw492_32/include/QtCore/QString \
 		../UnderWaterRobot/movement.h \
 		../UnderWaterRobot/hotkeys.h \
+		../../../QT/5.5/mingw492_32/include/QtCore/QTextStream \
 		../UnderWaterRobot/settings.h \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/QWidget \
 		../UnderWaterRobot/hotkeyswindow.h \
@@ -1264,6 +1294,7 @@ release/mainwindow.o: ../UnderWaterRobot/mainwindow.cpp ../UnderWaterRobot/mainw
 		../../../QT/5.5/mingw492_32/include/QtCore/QString \
 		../UnderWaterRobot/movement.h \
 		../UnderWaterRobot/hotkeys.h \
+		../../../QT/5.5/mingw492_32/include/QtCore/QTextStream \
 		../UnderWaterRobot/settings.h \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/QWidget \
 		../UnderWaterRobot/hotkeyswindow.h \
@@ -1271,52 +1302,7 @@ release/mainwindow.o: ../UnderWaterRobot/mainwindow.cpp ../UnderWaterRobot/mainw
 		../../../QT/5.5/mingw492_32/include/QtWidgets/qdialog.h \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/QMessageBox \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/qmessagebox.h \
-		ui_mainwindow.h \
-		../../../QT/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QFrame \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QGraphicsView \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qgraphicsview.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qscrollarea.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qgraphicsscene.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QGridLayout \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QHBoxLayout \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QMenu \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qmenu.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QMenuBar \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qmenubar.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QProgressBar \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qprogressbar.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QSlider \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QSpacerItem \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QStatusBar \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qstatusbar.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QToolBar \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qtoolbar.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QVBoxLayout
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\UnderWaterRobot\mainwindow.cpp
 
 release/controller.o: ../UnderWaterRobot/controller.cpp ../UnderWaterRobot/controller.h \
@@ -1404,6 +1390,7 @@ release/controller.o: ../UnderWaterRobot/controller.cpp ../UnderWaterRobot/contr
 		../../../QT/5.5/mingw492_32/include/QtCore/qfiledevice.h \
 		../../../QT/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		../../../QT/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		../../../QT/5.5/mingw492_32/include/QtCore/QTextStream \
 		../UnderWaterRobot/settings.h \
 		../../../QT/5.5/mingw492_32/include/QtGui/QtGui \
 		../../../QT/5.5/mingw492_32/include/QtGui/QtGuiDepends \
@@ -1726,7 +1713,8 @@ release/hotkeys.o: ../UnderWaterRobot/hotkeys.cpp ../UnderWaterRobot/hotkeys.h \
 		../../../QT/5.5/mingw492_32/include/QtCore/qfile.h \
 		../../../QT/5.5/mingw492_32/include/QtCore/qfiledevice.h \
 		../../../QT/5.5/mingw492_32/include/QtGui/qvector2d.h \
-		../../../QT/5.5/mingw492_32/include/QtGui/qtouchdevice.h
+		../../../QT/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		../../../QT/5.5/mingw492_32/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\hotkeys.o ..\UnderWaterRobot\hotkeys.cpp
 
 release/hotkeyswindow.o: ../UnderWaterRobot/hotkeyswindow.cpp ../UnderWaterRobot/hotkeyswindow.h \
@@ -1835,52 +1823,10 @@ release/hotkeyswindow.o: ../UnderWaterRobot/hotkeyswindow.cpp ../UnderWaterRobot
 		../../../QT/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		../UnderWaterRobot/hotkeys.h \
 		../../../QT/5.5/mingw492_32/include/QtGui/QKeyEvent \
+		../../../QT/5.5/mingw492_32/include/QtCore/QTextStream \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/QMessageBox \
 		../../../QT/5.5/mingw492_32/include/QtWidgets/qmessagebox.h \
-		ui_hotkeyswindow.h \
-		../../../QT/5.5/mingw492_32/include/QtCore/QVariant \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QAction \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		../../../QT/5.5/mingw492_32/include/QtGui/qicon.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QApplication \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		../../../QT/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		../../../QT/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		../../../QT/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		../../../QT/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QGridLayout \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qgridlayout.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qlayout.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qlayoutitem.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qboxlayout.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		../../../QT/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
-		../../../QT/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		../../../QT/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		../../../QT/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QLabel \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qlabel.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QPushButton \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qpushbutton.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/qabstractbutton.h \
-		../../../QT/5.5/mingw492_32/include/QtWidgets/QSpacerItem
+		ui_hotkeyswindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\hotkeyswindow.o ..\UnderWaterRobot\hotkeyswindow.cpp
 
 release/settings.o: ../UnderWaterRobot/settings.cpp ../UnderWaterRobot/settings.h \
