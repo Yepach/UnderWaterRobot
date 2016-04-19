@@ -104,6 +104,7 @@ void Hotkeys::loadHotkeys()
             return;
         }
 
+        // Save the keyboard hotkeys to file as numbers to read in later
         QTextStream in(&keyboardFile);
         setBackwards(in.readLine().toInt());
         setDown(in.readLine().toInt());
@@ -131,7 +132,7 @@ void Hotkeys::loadHotkeys()
             qDebug("Cannot open joystick file");
             return;
         }
-
+        // Save the joystick hotkeys to file as numbers to read in later
         QTextStream in(&joystickFile);
         setBackwards(in.readLine().toInt());
         setDown(in.readLine().toInt());

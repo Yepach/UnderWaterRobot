@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\controller.o
+./release\communication.o
+./release\movement.o
+./release\hotkeys.o
+./release\hotkeyswindow.o
+./release\settings.o
+./release\qrc_resources.o
+./release\moc_mainwindow.o
+./release\moc_hotkeyswindow.o
+);

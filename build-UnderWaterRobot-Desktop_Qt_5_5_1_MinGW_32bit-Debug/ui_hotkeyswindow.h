@@ -263,7 +263,7 @@ public:
         turnLeftLabel->setText(QApplication::translate("hotkeysWindow", "Turn Left:", 0));
         straftRightHotkeyButton->setText(QApplication::translate("hotkeysWindow", "PushButton", 0));
         rollLeftLabel->setText(QApplication::translate("hotkeysWindow", "Roll Left:", 0));
-        exitButton->setText(QApplication::translate("hotkeysWindow", "Exit", 0));
+        exitButton->setText(QApplication::translate("hotkeysWindow", "Cancel", 0));
         turnRightHotkeyButton->setText(QApplication::translate("hotkeysWindow", "PushButton", 0));
         forwardLabel->setText(QApplication::translate("hotkeysWindow", "Forward:", 0));
         straftRightLabel->setText(QApplication::translate("hotkeysWindow", "Straft Right:", 0));

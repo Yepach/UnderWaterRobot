@@ -128,6 +128,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->on_actionKeyboard_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 10: _t->on_actionCamera_1_triggered(); break;
         case 11: _t->on_actionCamera_2_triggered(); break;
+        case 12: _t->on_actionKeyboard_triggered(); break;
         default: ;
         }
     }

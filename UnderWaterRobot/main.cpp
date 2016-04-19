@@ -12,10 +12,10 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    while(true){
+    while(w.isVisible()){
         w.showDisplay();
         QApplication::processEvents();
     }
 
-    return a.exec();
+    return 0;
 }
